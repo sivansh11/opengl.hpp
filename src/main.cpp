@@ -5,8 +5,7 @@
 #include "opengl.hpp"
 #include "types.hpp"
 
-int main() {
-
+void init() {
     glfwInit();
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -25,10 +24,22 @@ int main() {
     glfwMakeContextCurrent(window);                     
 
     gladLoadGL();
+}
+
+int main() {
+
+    init();
+
+    struct SomeData {
+        int i;
+        float j;
+    } someData {1, 2.0f};
 
     gl::Buffer buffer = gl::Buffer::createBuffer();
-    
 
-    
-    std::cout << "Hello\n";
+    buffer.data(sizeof(SomeData), &someData, gl::BufferUsage::eStaticDraw);
+
+    gl::Buffer::deleteBuffer(buffer);
+
+    return 0;
 }
