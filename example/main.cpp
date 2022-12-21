@@ -2,8 +2,9 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "opengl.hpp"
-#include "types.hpp"
+
+#include "opengl/opengl.hpp"
+#include "opengl/types.hpp"
 
 #include <fstream>
 
@@ -84,9 +85,9 @@ int main() {
     gladLoadGL();
 
     gl::Shader vertShader = gl::Shader::createShader(gl::ShaderType::eVertex);
-    vertShader.source(1, readFile("../shaders/test.vert").c_str(), NULL);
+    vertShader.source(1, readFile("../../shaders/test.vert").c_str(), NULL);
     gl::Shader fragShader = gl::Shader::createShader(gl::ShaderType::eFragment);
-    fragShader.source(1, readFile("../shaders/test.frag").c_str(), NULL);
+    fragShader.source(1, readFile("../../shaders/test.frag").c_str(), NULL);
     
     std::cout << vertShader.getInfoLog() << '\n';
     std::cout << fragShader.getInfoLog() << '\n';

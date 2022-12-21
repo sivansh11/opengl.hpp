@@ -101,6 +101,103 @@ public:
     static constexpr GLbitfield eNone = GL_NONE;
 };
 
+enum class Type : GLenum {
+    eByte = GL_BYTE,
+    eUnsignedByte = GL_UNSIGNED_BYTE,
+    eShort = GL_SHORT,
+    eUnsignedShort = GL_UNSIGNED_SHORT,
+    eInt = GL_INT,
+    eUnsignedInt = GL_UNSIGNED_INT,
+    eFloat = GL_FLOAT,
+    eDouble = GL_DOUBLE,
+};
+
+enum class ShaderType : GLenum{
+    eVertex = GL_VERTEX_SHADER,
+    eFragment = GL_FRAGMENT_SHADER,
+    eGeometry = GL_GEOMETRY_SHADER,
+    eCompute = GL_COMPUTE_SHADER,
+    eTessControl = GL_TESS_CONTROL_SHADER,
+    eTessEvaluation = GL_TESS_EVALUATION_SHADER,
+};
+
+enum class ShaderIV : GLenum {
+    eType = GL_SHADER_TYPE,
+    eDeleteStatus = GL_DELETE_STATUS,
+    eCompileStatus = GL_COMPILE_STATUS,
+    eInfoLogLength = GL_INFO_LOG_LENGTH,
+    eShaderSourceLength = GL_SHADER_SOURCE_LENGTH,
+};
+
+enum class ProgramIV : GLenum {
+    eDeleteStatus = GL_DELETE_STATUS,
+    eLinkStatus = GL_LINK_STATUS,
+    eValidateStatus = GL_VALIDATE_STATUS,
+    eIngoLogLength = GL_INFO_LOG_LENGTH,
+    eAttachedShaders = GL_ATTACHED_SHADERS,
+    eActiveAttributes = GL_ACTIVE_ATTRIBUTES,
+    eActiveAttributeMaxLength = GL_ACTIVE_ATTRIBUTE_MAX_LENGTH,
+    eActiveUniforms = GL_ACTIVE_UNIFORMS,
+    eActiveUniformMaxLength = GL_ACTIVE_UNIFORM_MAX_LENGTH,
+};
+
+enum class Capabilities : GLenum {
+    eColorLogicOP = GL_COLOR_LOGIC_OP,
+    eColorTable = GL_COLOR_TABLE,
+    eConvolution1D = GL_CONVOLUTION_1D,
+    eConvolution2D = GL_CONVOLUTION_2D,
+    eCullFace = GL_CULL_FACE,
+    eDepthTest = GL_DEPTH_TEST,
+    eDither = GL_DITHER,
+    eHistogram = GL_HISTOGRAM,
+    eLineSmooth = GL_LINE_SMOOTH,
+    eMinMax = GL_MINMAX,
+    eMultiSample = GL_MULTISAMPLE,
+    ePolygonOffsetFill = GL_POLYGON_OFFSET_FILL,
+    ePolygonOffsetLine = GL_POLYGON_OFFSET_LINE,
+    ePolygonOffsetPoint = GL_POLYGON_OFFSET_POINT,
+    ePolygonSmooth = GL_POLYGON_SMOOTH,
+    ePostColorMatrixColorTable = GL_POST_COLOR_MATRIX_COLOR_TABLE,
+    ePostConvolutionColorTable = GL_POST_CONVOLUTION_COLOR_TABLE,
+    eSampleAlphaToCoverage = GL_SAMPLE_ALPHA_TO_COVERAGE,
+    eSampleAlphaToOne = GL_SAMPLE_ALPHA_TO_ONE,
+    eSampleCoverage = GL_SAMPLE_COVERAGE,
+    eSeparable2D = GL_SEPARABLE_2D,
+    eScissorTest = GL_SCISSOR_TEST,
+    eStencilTest = GL_STENCIL_TEST,
+    eTexture1D = GL_TEXTURE_1D,
+    eTexture2D = GL_TEXTURE_2D,
+    eTexture3D = GL_TEXTURE_3D,
+    eTextureCubeMap = GL_TEXTURE_CUBE_MAP,
+    eVertexProgramPointSize = GL_VERTEX_PROGRAM_POINT_SIZE,
+};
+
+enum class Primitive : GLenum {
+    ePoints = GL_POINTS,
+    eLineStrip = GL_LINE_STRIP,
+    eLineLoop = GL_LINE_LOOP,
+    eLines = GL_LINES,
+    eLineStripAdjacency = GL_LINE_STRIP_ADJACENCY,
+    eLinesAdjacency = GL_LINES_ADJACENCY,
+    eTriangleStrip = GL_TRIANGLE_STRIP,
+    eTriangleFan = GL_TRIANGLE_FAN,
+    eTriangles = GL_TRIANGLES,
+    eTriangleStripAdjacency = GL_TRIANGLE_STRIP_ADJACENCY,
+    eTrianglesAdjacency = GL_TRIANGLES_ADJACENCY,
+    ePatches = GL_PATCHES,
+};
+
+class ClearBufferBits : public BaseFlag<GLbitfield> {
+public:
+    ClearBufferBits() = default;
+    ClearBufferBits(GLbitfield flag) : BaseFlag(flag) {}
+    operator GLbitfield() {
+        return flags;
+    }
+    constexpr static GLbitfield eColor = GL_COLOR_BUFFER_BIT;
+    constexpr static GLbitfield eDepth = GL_DEPTH_BUFFER_BIT;
+    constexpr static GLbitfield eStencil = GL_STENCIL_BUFFER_BIT;
+};
 
 // enum class TextureType : GLint {
 //     e1D = GL_TEXTURE_1D,
