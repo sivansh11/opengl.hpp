@@ -3,9 +3,7 @@ this is inspired by vulkan.hpp
 
 NOTE: this opengl bindings currently only impliments opengl dsa
 
-At the moment I have only implimented buffers (not even vertex attributes),
-
-All dsa buffer operations/functions are now a part of class Buffer
+Buffer Example 
 
 this
 ```
