@@ -3,7 +3,7 @@ this is inspired by vulkan.hpp
 
 NOTE: this opengl bindings currently only impliments opengl dsa
 
-Buffer Example 
+## Buffer Example 
 
 this
 ```
@@ -29,4 +29,6 @@ all flags follow a common transformation
 for example 
 GL_STATIC_DRAW is a buffer usage flag
 this gets converted to gl::BufferUsage::eStaticDraw
+
+look at example/main.cpp for a fully working example
 
